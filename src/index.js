@@ -193,13 +193,13 @@ class DragSortableList extends React.Component {
       style['backgroundColor'] = 'rgba(99,149,218, 0.5)'
       classNames += ' dragged'
       return (
-         null
+         <tr ref={this.ref + 'dragged'} data-id={id} key={key} className={classNames} style={style}></tr>
       )
     }
 
     if(type === 'placeholder') {
       style.width = dragging.width // set with and height
-      style.height = dragging.heigh
+      style.height = dragging.height
       style['border'] = '2px dashed #6395da !important'
       classNames += ' placeholder'
       return (
