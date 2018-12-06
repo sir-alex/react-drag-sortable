@@ -160,9 +160,9 @@ class DragSortableList extends React.Component {
     })
 
     return (
-      <div id={this.ref} className="List" ref={this.ref}>
+      <tbody id={this.ref} className="List" ref={this.ref}>
         {itemsNodes}
-      </div>
+      </tbody>
     )
   }
 
@@ -181,7 +181,7 @@ class DragSortableList extends React.Component {
 
     if(type === 'normal') {
       return (
-         <div ref={this.ref + key} style={style} data-id={id} data-rank={rank} key={key} className={classNames}>{content}</div>
+         <tr ref={this.ref + key} style={style} data-id={id} data-rank={rank} key={key} className={classNames}>{content}</tr>
       )
     }
 
@@ -190,7 +190,7 @@ class DragSortableList extends React.Component {
       style['zIndex'] = 10 // make sur it is on top
       classNames += ' dragged'
       return (
-         <div ref={this.ref + 'dragged'} data-id={id} key={key} className={classNames} style={style}>{content}</div>
+         <tr ref={this.ref + 'dragged'} data-id={id} key={key} className={classNames} style={style}>{content}</tr>
       )
     }
 
@@ -199,9 +199,9 @@ class DragSortableList extends React.Component {
       style.height = dragging.height
       classNames += ' placeholder'
       return (
-        <div ref={this.ref + 'placeholder'} key={'placeholder'} className={classNames} style={style}>
+        <tr ref={this.ref + 'placeholder'} key={'placeholder'} className={classNames} style={style}>
           {placeholder}
-        </div>
+        </tr>
       )
     }
   }
